@@ -5,163 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Yi Saint-Jour</title>
     
-    <!-- Tipografía: Inter (Limpia, profesional, estilo suizo) -->
+    <!-- Tipografía: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-color: #ffffff;
+            /* Estilo Univer.se */
+            --bg-color: #F3F3F3;
+            --card-bg: #FFFFFF;
             --text-color: #111111;
-            --accent-color: #555555; /* Gris para fechas/detalles */
-            --spacing-unit: 2rem;
-            --line-height: 1.6; /* Un poco más de aire para el texto denso */
-            --font-main: 'Inter', Helvetica, Arial, sans-serif;
+            --accent-color: #666666; 
+            --radius: 24px;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* RESET & BASE */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: var(--font-main);
-            line-height: var(--line-height);
+            line-height: 1.5;
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
-            padding: 4rem 2rem;
+            padding: 20px;
         }
 
-        /* CONTENEDOR PRINCIPAL */
         main {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
-        }
-
-        /* TIPOGRAFÍA & JERARQUÍA */
-        h1 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            letter-spacing: -0.02em;
-        }
-
-        h2 {
-            font-size: 1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1.5rem;
-            margin-top: 3.5rem;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.5rem;
-        }
-
-        h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            font-weight: 300; /* Light para el cuerpo */
-            color: #222;
-            text-align: justify; /* Opcional: para un bloque de texto más ordenado */
-        }
-
-        .subtitle {
-            font-size: 1.125rem;
-            color: var(--accent-color);
-            font-weight: 300;
-            margin-bottom: 2rem;
-            line-height: 1.4;
-        }
-
-        /* ENLACES */
-        a {
-            color: var(--text-color);
-            text-decoration: none;
-            border-bottom: 1px solid #ccc;
-            transition: border-color 0.2s;
-        }
-        a:hover {
-            border-bottom-color: #000;
-        }
-
-        /* LISTAS (Para educación y trabajo) */
-        .entry-list {
-            list-style: none;
-        }
-
-        .entry {
-            margin-bottom: 2.5rem; /* Más espacio entre entradas */
-            display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 1.5rem;
-        }
-
-        .date {
-            font-size: 0.875rem;
-            color: var(--accent-color);
-            font-feature-settings: "tnum";
-            margin-top: 2px; /* Alineación óptica con el título */
-        }
-
-        .details {
             display: flex;
             flex-direction: column;
-        }
-        
-        .institution {
-            color: var(--accent-color);
-            font-style: italic;
-            margin-bottom: 0.75rem;
-            display: block;
+            gap: 20px;
         }
 
-        .description {
-            font-size: 0.95rem;
-            color: #444;
+        section, header {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
-        
-        .description p {
-            text-align: left; /* Reset del justify global si se desea */
-            margin-bottom: 0.5rem;
+
+        /* TIPOGRAFÍA */
+        h1 { font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
+        h2 { font-size: 1.25rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+        h2::before { content: "✶"; color: var(--text-color); }
+        h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem; }
+        p { margin-bottom: 1rem; font-weight: 400; color: #333; text-align: left; }
+        .subtitle { font-size: 1.2rem; color: var(--accent-color); font-weight: 400; line-height: 1.4; }
+
+        /* NAVEGACIÓN INTERNA */
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #f0f0f0;
+        }
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 50px;
+            background-color: #F3F3F3;
+            transition: all 0.2s ease;
+        }
+        .nav-link:hover {
+            background-color: #e0e0e0;
         }
 
         /* CONTACTO */
         .contact-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 10px;
             list-style: none;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            margin-top: 20px;
+        }
+        .contact-list a, .contact-tag {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #111;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+        .contact-list a:hover { opacity: 0.8; }
+        .contact-tag { background-color: transparent; border: 1px solid #eee; color: var(--text-color); cursor: default; }
+
+        /* APTITUDES */
+        .skills-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+        .skill-tag { background-color: #f3f3f3; color: #111; padding: 8px 16px; border-radius: 12px; font-size: 0.85rem; font-weight: 500; }
+
+        /* EXPERIENCIA */
+        .entry-list { list-style: none; }
+        .entry { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid #eee; }
+        .entry:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        
+        .entry-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 0.5rem; }
+        .date { font-size: 0.85rem; color: var(--accent-color); font-weight: 500; background: #f0f0f0; padding: 4px 10px; border-radius: 6px; white-space: nowrap; }
+        .institution { font-weight: 500; color: var(--accent-color); display: block; margin-bottom: 0.5rem; }
+        .description { font-size: 0.95rem; color: #444; line-height: 1.6; }
+
+        /* Estilo destacado para el valor diferenciador */
+        .valor-diferenciador {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #111;
+            margin-top: 1.5rem;
+            padding-left: 15px;
+            border-left: 3px solid #111;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 600px) {
-            body { padding: 2rem 1.5rem; }
-            
-            .entry {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-                margin-bottom: 2rem;
-            }
-            
-            .date {
-                font-size: 0.8rem;
-                opacity: 0.7;
-            }
-        }
-
-        @media print {
-            body { padding: 0; font-size: 11pt; }
-            main { max-width: 100%; }
-            a { text-decoration: none; border: none; }
-            h2 { margin-top: 2rem; }
+            body { padding: 10px; }
+            section, header { padding: 25px; border-radius: 20px; }
+            h1 { font-size: 2rem; }
+            .entry-header { flex-direction: column; gap: 5px; }
+            .date { order: -1; display: inline-block; margin-bottom: 5px; }
         }
     </style>
 </head>
@@ -169,76 +141,148 @@
 
     <main>
         
-        <!-- 1. PORTADA -->
+        <!-- 1. HEADER + NAVEGACIÓN -->
         <header>
             <h1>Yi Saint-Jour</h1>
-            <p class="subtitle">Diseñadora Multidisciplinaria & Coordinadora de Proyectos.<br>Enfoque en dirección artística, producción e implementación visual.</p>
+            <p class="subtitle">Design Project Manager | Gestión Estratégica & Diseño Multidisciplinario</p>
+            
+            <ul class="contact-list">
+                <li><a href="mailto:yi.creativa@gmail.com">Email</a></li>
+                <li><a href="https://www.linkedin.com/in/yyyi" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.behance.net/yyyi" target="_blank">Behance</a></li>
+                <li><span class="contact-tag">📍 Santiago, Chile</span></li>
+            </ul>
+
+            <nav class="nav-menu">
+                <a href="#perfil" class="nav-link">Perfil</a>
+                <a href="#aptitudes" class="nav-link">Aptitudes</a>
+                <a href="#experiencia" class="nav-link">Experiencia</a>
+                <a href="#educacion" class="nav-link">Educación</a>
+            </nav>
         </header>
 
-        <!-- 2. RESUMEN -->
-        <section id="resumen">
+        <!-- 2. PERFIL (Actualizado con tu valor diferenciador) -->
+        <section id="perfil">
             <h2>Perfil</h2>
             <p>
                 Diseñadora egresada de la Universidad de Chile, con experiencia en la creación de material gráfico para diversas plataformas, desde redes sociales hasta piezas impresas. Mi enfoque multidisciplinario abarca diseño digital, fotografía, grabación, edición de video, animación e ilustración.
             </p>
             <p>
-                Con profundo interés me involucro en todo el proceso para llevar a cabo un proyecto coherente, desde su fundamento y conceptualización, dirección artística, producción e implementación.
+                Mi valor diferenciador es la profundidad en el trabajo: me distingo por un análisis riguroso y la búsqueda constante de coherencia entre contenido, narrativa y objetivo comunicacional.
             </p>
-            <p>
-                Soy una profesional organizada, resolutiva y con una gran capacidad para adaptarme a distintos lineamientos gráficos. Siempre en busca de nuevos aprendizajes para enfrentar cada desafío de manera creativa y eficiente.
+            <p class="valor-diferenciador">
+                El diseño no es algo meramente estético, sino que debe trabajarse de manera consciente para que sea efectivo. Mi metodología se basa en casos de éxito, referentes sólidos y tendencias de vanguardia.
             </p>
         </section>
 
-        <!-- 3. CONTACTO -->
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <ul class="contact-list">
-                <li><a href="mailto:yi.creativa@gmail.com">yi.creativa@gmail.com</a></li>
-                <li><a href="https://www.behance.net/yyyi" target="_blank">Behance</a></li>
-                <!-- Puedes agregar LinkedIn o Instagram si lo deseas -->
-                <!-- <li><a href="#" target="_blank">LinkedIn</a></li> -->
+        <!-- 3. APTITUDES -->
+        <section id="aptitudes">
+            <h2>Aptitudes</h2>
+            <ul class="skills-list">
+                <li class="skill-tag">Design Project Management</li>
+                <li class="skill-tag">Diseño Multidisciplinario</li>
+                <li class="skill-tag">Campañas Publicitarias</li>
+                <li class="skill-tag">Dirección de Arte</li>
+                <li class="skill-tag">Gestión Estratégica</li>
             </ul>
         </section>
 
         <!-- 4. EXPERIENCIA -->
-        <section id="trabajo">
+        <section id="experiencia">
             <h2>Experiencia</h2>
             <ul class="entry-list">
                 
-                <!-- Trabajo Actual -->
                 <li class="entry">
-                    <span class="date">2025 — Presente</span>
-                    <div class="details">
-                        <h3>Coordinadora de Proyectos de Diseño</h3>
-                        <span class="institution">Santiago Design Experience (SDE)</span>
-                        <div class="description">
-                            <p>Gestión y visión global de proyectos creativos, asegurando que el objetivo del cliente se traduzca en una ejecución visual coherente y de alto impacto.</p>
-                            <p>Responsable de orquestar el flujo de trabajo, validar entregables y mantener la comunicación estratégica entre el cliente y el equipo de diseño.</p>
-                        </div>
+                    <div class="entry-header">
+                        <h3>Design Project Manager</h3>
+                        <span class="date">Jun 2025 - Presente</span>
+                    </div>
+                    <span class="institution">SANTIAGO DESIGN EXPERIENCE</span>
+                    <div class="description">
+                        <p>Gestión y visión global de proyectos creativos, asegurando que el objetivo del cliente se traduzca en una ejecución visual coherente y de alto impacto.</p>
+                        <p>Responsable de orquestar el flujo de trabajo, validar entregables y mantener la comunicación estratégica entre el cliente y el equipo de diseño.</p>
                     </div>
                 </li>
 
-                <!-- Trabajo Anterior: tttravesuras -->
                 <li class="entry">
-                    <span class="date">2023 — 2024</span>
-                    <div class="details">
-                        <h3>Fundadora & Directora Creativa</h3>
-                        <span class="institution">tttravesuras</span>
-                        <div class="description">
-                            Creación y gestión integral de marca de joyería de autor. Desarrollo de identidad visual, packaging, fotografía de producto y estrategia de contenido digital.
-                        </div>
+                    <div class="entry-header">
+                        <h3>Ayudante de Cátedra (Visualidad y Medios)</h3>
+                        <span class="date">Mar 2025 - Jul 2025</span>
+                    </div>
+                    <span class="institution">Facultad de Arquitectura y Urbanismo, U. de Chile</span>
+                    <div class="description">
+                        <p>Ayudante del curso Proyecto VII. Acompañamiento en procesos de investigación y desarrollo proyectual.</p>
                     </div>
                 </li>
 
-                <!-- Trabajo Anterior: Ayudantía -->
                 <li class="entry">
-                    <span class="date">2020 — 2022</span>
-                    <div class="details">
-                        <h3>Ayudante Académica</h3>
-                        <span class="institution">Universidad de Chile</span>
-                        <div class="description">
-                            Apoyo docente en cátedras de diseño, guiando a alumnos en procesos proyectuales, correcciones gráficas y conceptualización.
-                        </div>
+                    <div class="entry-header">
+                        <h3>Diseño Gráfico Fanmeeting 'IN LOVE'</h3>
+                        <span class="date">Oct 2024 - Mar 2025</span>
+                    </div>
+                    <span class="institution">Urimusic Entertainment</span>
+                    <div class="description">
+                        <p>Producción y dirección de contenido gráfico para la gira LATAM (México, Perú, Brasil, Chile). Coordinación internacional, diseño de landing pages, señaléticas y material promocional.</p>
+                    </div>
+                </li>
+
+                <li class="entry">
+                    <div class="entry-header">
+                        <h3>Diseño Gráfico Fanmeeting 'OUR TIME'</h3>
+                        <span class="date">Sep 2024 - Ene 2025</span>
+                    </div>
+                    <span class="institution">Urimusic Entertainment</span>
+                    <div class="description">
+                        <p>Diseño integral y gestión de merchandising oficial. Desarrollo de campaña visual para redes sociales y eventos en LATAM.</p>
+                    </div>
+                </li>
+
+                <li class="entry">
+                    <div class="entry-header">
+                        <h3>Diseño Gráfico Concierto 'Luck Inside 7 Doors'</h3>
+                        <span class="date">May 2024 - Sep 2024</span>
+                    </div>
+                    <span class="institution">Urimusic Entertainment</span>
+                    <div class="description">
+                        <p>Estrategia visual y producción gráfica digital/offline para la promoción del concierto de K-pop.</p>
+                    </div>
+                </li>
+
+                <li class="entry">
+                    <div class="entry-header">
+                        <h3>Ayudante de Cátedra</h3>
+                        <span class="date">Abr 2024 - Jul 2024</span>
+                    </div>
+                    <span class="institution">Facultad de Arquitectura y Urbanismo, U. de Chile</span>
+                </li>
+
+                <li class="entry">
+                    <div class="entry-header">
+                        <h3>Instructora Meta Spark AR</h3>
+                        <span class="date">Oct 2023</span>
+                    </div>
+                    <span class="institution">CRTIC</span>
+                </li>
+
+                <li class="entry">
+                    <div class="entry-header">
+                        <h3>Profesor Universitario Asistente</h3>
+                        <span class="date">Ago 2023 - Nov 2023</span>
+                    </div>
+                    <span class="institution">Universidad de Chile</span>
+                    <div class="description">
+                        <p>Planificación académica y retroalimentación de proyectos editoriales.</p>
+                    </div>
+                </li>
+
+                <li class="entry">
+                    <div class="entry-header">
+                        <h3>Diseñadora Gráfica Autónoma</h3>
+                        <span class="date">Jun 2019 - Presente</span>
+                    </div>
+                    <span class="institution">Independiente</span>
+                    <div class="description">
+                        <p>Gestión y ejecución de proyectos de identidad visual y diseño gráfico para diversos clientes.</p>
                     </div>
                 </li>
 
@@ -251,14 +295,21 @@
             <ul class="entry-list">
                 
                 <li class="entry">
-                    <span class="date">2018 — 2022</span>
-                    <div class="details">
-                        <h3>Diseñadora (Licenciatura en Diseño)</h3>
-                        <span class="institution">Universidad de Chile</span>
+                    <div class="entry-header">
+                        <h3>Diseñadora Gráfica</h3>
+                        <span class="date">2016 - 2022</span>
                     </div>
+                    <span class="institution">Universidad de Chile</span>
+                    <div class="description">Licenciatura en Diseño, Mención Gráfico</div>
                 </li>
 
-                <!-- Puedes agregar diplomados o cursos aquí si tienes -->
+                <li class="entry">
+                    <div class="entry-header">
+                        <h3>Ingeniería Comercial</h3>
+                        <span class="date">2013 - 2014</span>
+                    </div>
+                    <span class="institution">Universidad Técnica Federico Santa María</span>
+                </li>
 
             </ul>
         </section>
