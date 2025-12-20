@@ -12,7 +12,7 @@
 
     <style>
         :root {
-            /* Estilo Univer.se */
+            /* Estilo Univer.se depurado */
             --bg-color: #F3F3F3;
             --card-bg: #FFFFFF;
             --text-color: #111111;
@@ -57,64 +57,87 @@
         p { margin-bottom: 1rem; font-weight: 400; color: #333; text-align: left; }
         .subtitle { font-size: 1.2rem; color: var(--accent-color); font-weight: 400; line-height: 1.4; }
 
-        /* NAVEGACIÓN INTERNA */
+        /* NAVEGACIÓN INTERNA (Texto simple, sin fondo) */
         .nav-menu {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 20px;
             margin-top: 30px;
             padding-top: 30px;
             border-top: 1px solid #f0f0f0;
         }
         .nav-link {
             text-decoration: none;
-            color: var(--text-color);
+            color: var(--accent-color);
             font-weight: 500;
-            font-size: 0.9rem;
-            padding: 8px 16px;
-            border-radius: 50px;
-            background-color: #F3F3F3;
-            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            position: relative;
         }
         .nav-link:hover {
-            background-color: #e0e0e0;
+            color: var(--text-color);
+        }
+        /* Efecto de subrayado sutil al hover */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--text-color);
+            transition: width 0.2s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
         }
 
-        /* CONTACTO */
+        /* CONTACTO (Texto simple) */
         .contact-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 20px;
             list-style: none;
             margin-top: 20px;
         }
         .contact-list a, .contact-tag {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #111;
-            color: #fff;
+            color: var(--text-color);
             text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 50px;
             font-weight: 500;
             font-size: 0.95rem;
-            transition: opacity 0.2s;
+            transition: color 0.2s;
+            border-bottom: 1px solid transparent; /* Preparado para subrayado */
         }
-        .contact-list a:hover { opacity: 0.8; }
-        .contact-tag { background-color: transparent; border: 1px solid #eee; color: var(--text-color); cursor: default; }
+        
+        .contact-list a:hover {
+            border-bottom-color: var(--text-color);
+        }
+        
+        .contact-tag { color: var(--accent-color); cursor: default; }
 
-        /* APTITUDES */
+        /* APTITUDES (Tags sutiles) */
         .skills-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
-        .skill-tag { background-color: #f3f3f3; color: #111; padding: 8px 16px; border-radius: 12px; font-size: 0.85rem; font-weight: 500; }
+        .skill-tag { 
+            /* Diseño más limpio: solo borde o fondo muy suave */
+            border: 1px solid #eee;
+            background-color: transparent;
+            color: #444; 
+            padding: 6px 14px; 
+            border-radius: 6px; /* Menos redondo */
+            font-size: 0.85rem; 
+            font-weight: 400; 
+        }
 
         /* EXPERIENCIA */
         .entry-list { list-style: none; }
-        .entry { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid #eee; }
+        .entry { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid #f5f5f5; }
         .entry:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         
         .entry-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 0.5rem; }
-        .date { font-size: 0.85rem; color: var(--accent-color); font-weight: 500; background: #f0f0f0; padding: 4px 10px; border-radius: 6px; white-space: nowrap; }
+        
+        /* Fecha más limpia, sin "pill" */
+        .date { font-size: 0.85rem; color: var(--accent-color); font-weight: 400;  font-feature-settings: "tnum"; white-space: nowrap; }
+        
         .institution { font-weight: 500; color: var(--accent-color); display: block; margin-bottom: 0.5rem; }
         .description { font-size: 0.95rem; color: #444; line-height: 1.6; }
 
@@ -124,8 +147,7 @@
             font-weight: 500;
             color: #111;
             margin-top: 1.5rem;
-            padding-left: 15px;
-            border-left: 3px solid #111;
+            /* Eliminé el borde lateral para hacerlo más limpio */
         }
 
         @media (max-width: 600px) {
@@ -133,7 +155,8 @@
             section, header { padding: 25px; border-radius: 20px; }
             h1 { font-size: 2rem; }
             .entry-header { flex-direction: column; gap: 5px; }
-            .date { order: -1; display: inline-block; margin-bottom: 5px; }
+            .date { order: -1; display: inline-block; margin-bottom: 5px; opacity: 0.8; }
+            .contact-list, .nav-menu { gap: 15px; }
         }
     </style>
 </head>
@@ -150,7 +173,7 @@
                 <li><a href="mailto:yi.creativa@gmail.com">Email</a></li>
                 <li><a href="https://www.linkedin.com/in/yyyi" target="_blank">LinkedIn</a></li>
                 <li><a href="https://www.behance.net/yyyi" target="_blank">Behance</a></li>
-                <li><span class="contact-tag">📍 Santiago, Chile</span></li>
+                <li><span class="contact-tag">Santiago, Chile</span></li>
             </ul>
 
             <nav class="nav-menu">
@@ -161,17 +184,18 @@
             </nav>
         </header>
 
-        <!-- 2. PERFIL (Actualizado con tu valor diferenciador) -->
+        <!-- 2. PERFIL -->
         <section id="perfil">
             <h2>Perfil</h2>
             <p>
                 Diseñadora egresada de la Universidad de Chile, con experiencia en la creación de material gráfico para diversas plataformas, desde redes sociales hasta piezas impresas. Mi enfoque multidisciplinario abarca diseño digital, fotografía, grabación, edición de video, animación e ilustración.
             </p>
             <p>
-                Mi valor diferenciador es la profundidad en el trabajo: me distingo por un análisis riguroso y la búsqueda constante de coherencia entre contenido, narrativa y objetivo comunicacional.
+                Con profundo interés me involucro en todo el proceso para llevar a cabo un proyecto coherente, desde su fundamento y conceptualización, dirección artística, producción e implementación.
             </p>
+            
             <p class="valor-diferenciador">
-                El diseño no es algo meramente estético, sino que debe trabajarse de manera consciente para que sea efectivo. Mi metodología se basa en casos de éxito, referentes sólidos y tendencias de vanguardia.
+                Mi valor diferenciador es la profundidad en el trabajo: me distingo por un análisis riguroso y la búsqueda constante de coherencia entre contenido, narrativa y objetivo comunicacional. El diseño no es algo meramente estético, sino que debe trabajarse de manera consciente para que sea efectivo.
             </p>
         </section>
 
@@ -315,6 +339,9 @@
         </section>
 
     </main>
+
+</body>
+</html>
 
 </body>
 </html>
