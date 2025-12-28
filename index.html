@@ -11,19 +11,15 @@
 
     <style>
         :root {
-            /* Paleta extraída de tus imágenes */
-            --bg-dark: #0a0a0a;     /* Fondo Hero */
-            --bg-red: #D91A1A;      /* Fondo Bio/Footer */
-            --bg-pink: #F4EFEB;     /* Fondo Navi/Miu */
+            --bg-dark: #0a0a0a;
+            --bg-red: #D91A1A;
+            --bg-pink: #F4EFEB;
             --bg-light: #F9F9F9;
-            
             --text-main: #111111;
             --text-white: #FFFFFF;
-            
             --sidebar-width: 250px;
         }
 
-        /* RESET */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
 
@@ -35,7 +31,7 @@
             display: flex;
         }
 
-        /* --- 1. SIDEBAR (Estilo Minimalista) --- */
+        /* SIDEBAR */
         .sidebar {
             width: var(--sidebar-width);
             height: 100vh;
@@ -46,7 +42,7 @@
             padding: 50px 30px; 
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Logo arriba, nav centro, redes abajo */
+            justify-content: space-between;
             flex-shrink: 0;
             z-index: 100;
         }
@@ -70,34 +66,15 @@
         }
         .nav-link:hover, .nav-link.active { color: #000; font-weight: 500; }
 
-        .social-mini {
-            display: flex;
-            gap: 10px;
-            font-size: 0.8rem;
-        }
+        .social-mini { display: flex; gap: 10px; font-size: 0.8rem; }
         .social-mini a { text-decoration: none; color: #888; }
 
-        /* --- 2. MAIN CONTAINER --- */
-        main {
-            flex: 1;
-            width: 100%;
-            /* No usamos max-width aquí para permitir secciones de color completo */
-        }
+        /* MAIN */
+        main { flex: 1; width: 100%; }
+        section { width: 100%; position: relative; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 40px; }
 
-        /* --- SECCIONES GENERALES --- */
-        section {
-            width: 100%;
-            position: relative;
-        }
-
-        /* Clase utilitaria para centrar contenido dentro de las franjas de color */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 80px 40px;
-        }
-
-        /* --- HERO SECTION (Referencia: Image 7 - Portafolio 2025) --- */
+        /* HERO */
         #hero {
             background-color: var(--bg-dark);
             color: var(--text-white);
@@ -115,20 +92,17 @@
         }
 
         .hero-text h1 {
-            font-family: 'Playfair Display', serif; /* Tipografía estilo editorial */
+            font-family: 'Playfair Display', serif;
             font-size: 5rem;
             line-height: 0.9;
             margin-bottom: 20px;
-            color: #E63C3C; /* Rojo de tu portada */
+            color: #E63C3C;
         }
         
         .hero-text p { font-size: 1.2rem; opacity: 0.8; }
         
         .hero-img img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            /* Efecto sutil de flotación para el elemento 3D */
+            width: 100%; height: auto; border-radius: 8px;
             animation: float 6s ease-in-out infinite;
         }
 
@@ -138,118 +112,97 @@
             100% { transform: translateY(0px); }
         }
 
-        /* --- BIO SECTION (Referencia: Image 10 - Fondo Rojo) --- */
-        #about {
-            background-color: var(--bg-red); /* */
-            color: var(--text-white);
-        }
-
-        .bio-layout {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 60px;
-        }
-
-        .skills-list {
-            list-style: none;
-            border-left: 2px solid rgba(255,255,255,0.3);
-            padding-left: 20px;
-        }
+        /* BIO */
+        #about { background-color: var(--bg-red); color: var(--text-white); }
+        .bio-layout { display: grid; grid-template-columns: 300px 1fr; gap: 60px; }
+        .skills-list { list-style: none; border-left: 2px solid rgba(255,255,255,0.3); padding-left: 20px; }
         .skills-list li { margin-bottom: 15px; font-size: 1.1rem; }
+        .bio-content p { font-size: 1.5rem; line-height: 1.4; font-weight: 300; }
 
-        .bio-content p {
-            font-size: 1.5rem; /* Texto grande estilo editorial */
-            line-height: 1.4;
-            font-weight: 300;
-        }
-
-        /* --- PROYECTOS (Layout Alternado) --- */
-        
-        /* Proyecto 1: NAVI (Púrpura/Holográfico) */
+        /* PROYECTOS - ESTILOS ACTUALIZADOS */
         #navi { background-color: #F8F5F2; } 
-        
+        #miu { background-color: #FFF0F5; } 
+        #luck { background-color: #EEEAE6; }
+
         .project-header {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: 1.5fr 1fr; /* Imagen grande, texto lateral */
             gap: 50px;
             align-items: center;
             margin-bottom: 60px;
         }
 
-        .project-title h2 { font-size: 3.5rem; margin-bottom: 10px; }
-        .project-title span { display: block; color: #666; font-size: 1.1rem; margin-bottom: 30px;}
+        /* Clase específica para forzar alineación a la izquierda */
+        .project-title {
+            text-align: left; /* Alineación forzada a la izquierda */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-title h2 { 
+            font-size: 3.5rem; 
+            margin-bottom: 10px; 
+            line-height: 1.1;
+        }
         
-        .tags { display: flex; gap: 10px; flex-wrap: wrap; }
+        .project-title span { 
+            display: block; 
+            color: #666; 
+            font-size: 1.1rem; 
+            margin-bottom: 20px; 
+            font-weight: 500;
+        }
+        
+        .project-title p {
+            max-width: 400px; /* Evita que el texto se estire demasiado */
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
         .tag { border: 1px solid #333; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; }
 
-        .project-gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-        .gallery-item img, .gallery-item video {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 4px;
-        }
+        .project-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .gallery-item img, .gallery-item video { width: 100%; height: auto; display: block; border-radius: 4px; }
         .full-width { grid-column: 1 / -1; }
 
-        /* Proyecto 2: MIU (Pink) */
-        #miu { background-color: #FFF0F5; } /* Fondo rosado suave */
-
-        /* Proyecto 3: LUCK INSIDE (Beige) */
-        #luck { background-color: #EEEAE6; }
-
-        /* --- VISUAL LAB (Grid 3D Abstracto) --- */
+        /* VISUAL LAB */
         #lab { background-color: #111; color: #fff; }
-        .lab-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-        .lab-item {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 1/1; /* Cuadrados perfectos */
-        }
-        .lab-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
+        .lab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .lab-item { position: relative; overflow: hidden; aspect-ratio: 1/1; }
+        .lab-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
         .lab-item:hover img { transform: scale(1.05); }
 
-        /* --- FOOTER (Rojo) --- */
-        #footer {
-            background-color: var(--bg-red);
-            color: #fff;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        .footer-big {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            margin-bottom: 20px;
-        }
+        /* FOOTER */
+        #footer { background-color: var(--bg-red); color: #fff; text-align: center; padding: 100px 20px; }
+        .footer-big { font-family: 'Playfair Display', serif; font-size: 5rem; margin-bottom: 20px; }
         .footer-info a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 1.1rem; }
+        
+        /* Estilo del contador */
+        .visit-badge {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            font-family: monospace;
+            border: 1px solid rgba(255,255,255,0.3);
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
 
-        /* --- RESPONSIVE --- */
+        /* RESPONSIVE */
         @media (max-width: 900px) {
             body { flex-direction: column; }
-            .sidebar { 
-                width: 100%; height: auto; position: relative; 
-                flex-direction: row; align-items: center; padding: 20px;
-            }
-            .nav-list { display: none; } /* Ocultar menú en móvil o hacer hamburguesa */
-            
-            .hero-grid, .bio-layout, .project-header, .project-gallery, .lab-grid {
-                grid-template-columns: 1fr;
-            }
-            
+            .sidebar { width: 100%; height: auto; padding: 20px; flex-direction: row; align-items: center; }
+            .nav-list { display: none; }
+            .hero-grid, .bio-layout, .project-header, .project-gallery, .lab-grid { grid-template-columns: 1fr; }
+            .project-title { text-align: left; align-items: flex-start; } /* Asegura izq en móvil también */
             .hero-text h1 { font-size: 3rem; }
             .footer-big { font-size: 3rem; }
+            /* En móvil, invertimos orden si quieres imagen arriba texto abajo */
+            .project-header > .project-title { order: 2; } 
+            .project-header > .project-img-hero { order: 1; }
         }
     </style>
 </head>
@@ -266,7 +219,7 @@
             <li class="nav-item"><a href="#lab" class="nav-link">Visual Lab</a></li>
         </ul>
         <div class="social-mini">
-            <a href="#">IG</a> / <a href="#">BE</a> / <a href="#">LI</a>
+            <a href="#">IG</a> / <a href="#">BE</a>
         </div>
     </nav>
 
@@ -275,7 +228,8 @@
         <section id="hero">
             <div class="container hero-grid">
                 <div class="hero-text">
-                    <h1>Portafolio<br>2025</h1> <p>Diseño Multidisciplinar | Identidad | 3D</p>
+                    <h1>Portafolio<br>2025</h1>
+                    <p>Diseño Multidisciplinar | Identidad | 3D</p>
                 </div>
                 <div class="hero-img">
                     <img src="ruta/a/tu/imagen_portada.jpg" alt="Arte 3D Abstracto">
@@ -293,7 +247,7 @@
                 <div class="bio-content">
                     <p>
                         Yi Saint-Jour (1993) es una diseñadora multidisciplinaria cuya práctica cruza el diseño digital, la identidad visual y la ilustración. Su trayectoria se ha desarrollado creando piezas visuales para redes sociales y contenido audiovisual.
-                        </p>
+                    </p>
                 </div>
             </div>
         </section>
@@ -308,30 +262,27 @@
                         <h2>navi</h2>
                         <span>Comunidad creativa del K-Fandom</span>
                         <p>Dirección creativa para una comunidad de personas aficionadas a la cultura coreana.</p>
-                        <div class="tags" style="margin-top:20px;">
+                        <div class="tags">
                             <span class="tag">Dirección Creativa</span>
                             <span class="tag">Ilustración 3D</span>
                         </div>
                     </div>
                 </div>
                 <div class="project-gallery">
-                    <div class="gallery-item">
-                        <img src="ruta/a/navi_stickers.jpg" alt="Navi Assets">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="ruta/a/navi_grid.jpg" alt="Navi Social Grid">
-                    </div>
+                    <div class="gallery-item"><img src="ruta/a/navi_stickers.jpg" alt="Navi Assets"></div>
+                    <div class="gallery-item"><img src="ruta/a/navi_grid.jpg" alt="Navi Social Grid"></div>
                 </div>
             </div>
         </section>
 
         <section id="miu">
             <div class="container">
-                <div class="project-header">
+                <div class="project-header" style="grid-template-columns: 1fr 1.5fr;">
                     <div class="project-title">
-                        <h2>MIU NAIL STUDIO</h2> <span>Logotipo & Highlights</span>
+                        <h2>MIU NAIL STUDIO</h2>
+                        <span>Logotipo & Highlights</span>
                         <p>Diseño de pack de logotipo e historias destacadas para perfil de Instagram. Estética Glossy & Y2K.</p>
-                        <div class="tags" style="margin-top:20px;">
+                        <div class="tags">
                             <span class="tag">Branding</span>
                             <span class="tag">Social Media</span>
                         </div>
@@ -341,9 +292,7 @@
                     </div>
                 </div>
                 <div class="project-gallery">
-                    <div class="gallery-item full-width">
-                        <img src="ruta/a/miu_board.jpg" alt="Miu Brand Board">
-                    </div>
+                    <div class="gallery-item full-width"><img src="ruta/a/miu_board.jpg" alt="Miu Brand Board"></div>
                 </div>
             </div>
         </section>
@@ -358,6 +307,10 @@
                         <h2>Luck Inside<br>7 Doors</h2>
                         <span>Urimusic Entertainment</span>
                         <p>Diseño gráfico para campaña promocional de la agrupación surcoreana Dreamcatcher.</p>
+                        <div class="tags">
+                            <span class="tag">Social Media</span>
+                            <span class="tag">Eventos</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -383,10 +336,45 @@
                 <a href="mailto:yi.creativa@gmail.com">yi.creativa@gmail.com</a>
                 <a href="#">+569 4987 3116</a>
                 <br><br>
-                <span style="font-size: 0.8rem; opacity: 0.7;">© 2026 Yi Saint-Jour. Todos los derechos reservados.</span>
+                <div class="visit-badge" id="visit-counter">
+                    Visitas: Cargando...
+                </div>
+                <br><br>
+                <span style="font-size: 0.8rem; opacity: 0.7;">© 2026 Yi Saint-Jour.</span>
             </div>
         </footer>
 
     </main>
+
+    <script>
+        // CONFIGURACIÓN COUNTERAPI
+        // Como tienes cuenta, reemplaza 'TU_NAMESPACE' y 'TU_KEY' con los datos que te dio counterapi.
+        // Si no tienes KEY, counterapi permite usar solo namespace y generará un contador público.
+        // Ejemplo de namespace: 'yi-portfolio.com' o 'misitio'
+        
+        const NAMESPACE = 'yi-saint-jour-portfolio'; // Puedes cambiar esto
+        const KEY = 'visitas'; // Puedes cambiar esto
+
+        const counterElement = document.getElementById('visit-counter');
+
+        // Función para obtener y aumentar el contador
+        // Nota: CounterAPI tiene endpoints como 'hit' (aumenta) o 'get' (solo lee).
+        // Usamos 'hit' para contar cada carga de página.
+        
+        // URL para Counterapi (Verifica si usas counterapi.dev o countapi.xyz)
+        // Ejemplo genérico usando countapi.xyz (muy común):
+        const API_URL = `https://api.counterapi.dev/v2/yyyi-creativas-team-2294/first-counter-2294/u`;
+
+        fetch(API_URL)
+            .then(response => response.json())
+            .then(data => {
+                // Actualiza el texto en el footer
+                counterElement.innerText = `Visitas: ${data.value}`;
+            })
+            .catch(error => {
+                console.error('Error al cargar contador:', error);
+                counterElement.innerText = 'Visitas: --';
+            });
+    </script>
 </body>
 </html>
