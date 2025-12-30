@@ -183,4 +183,253 @@
         .gallery-item img, .gallery-item video { width: 100%; height: auto; display: block; border-radius: 4px; }
         .full-width { grid-column: 1 / -1; }
 
-        /* --- NUEVAS CLASES
+        /* --- NUEVAS CLASES DE COLUMNAS (Para usar dentro de las secciones) --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+        }
+
+        /* VISUAL LAB */
+        #lab { background-color: #111; color: #fff; }
+        .lab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .lab-item { position: relative; overflow: hidden; aspect-ratio: 1/1; }
+        .lab-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .lab-item:hover img { transform: scale(1.05); }
+
+        /* FOOTER */
+        #footer { background-color: var(--bg-red); color: #fff; text-align: center; padding: 100px 20px; }
+        .footer-big { font-family: 'Playfair Display', serif; font-size: 5rem; margin-bottom: 20px; }
+        .footer-info a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 1.1rem; }
+        
+        .visit-badge {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            font-family: monospace;
+            border: 1px solid rgba(255,255,255,0.3);
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; padding: 20px; flex-direction: row; align-items: center; position: relative;}
+            .nav-list { display: none; }
+            .hero-grid, .bio-layout, .project-header, .project-gallery, .lab-grid, .grid-2, .grid-4 { grid-template-columns: 1fr; }
+            .project-title { text-align: left; align-items: flex-start; } 
+            .hero-text h1 { font-size: 3rem; }
+            .footer-big { font-size: 3rem; }
+            .project-header > .project-title { order: 2; } 
+            .project-header > .project-img-hero { order: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo">Yi Saint-Jour</div>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#hero" class="nav-link active">Inicio</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link">Bio</a></li>
+            <li class="nav-item"><a href="#navi" class="nav-link">Navi</a></li>
+            <li class="nav-item"><a href="#miu" class="nav-link">Miu Nail Studio</a></li>
+            <li class="nav-item"><a href="#luck" class="nav-link">Luck Inside</a></li>
+            <li class="nav-item"><a href="#lab" class="nav-link">Visual Lab</a></li>
+        </ul>
+        <div class="social-mini">
+            <a href="#">IG</a> / <a href="#">BE</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <section id="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1>Portafolio<br>2025</h1>
+                    <p>Diseño Multidisciplinar | Identidad | 3D</p>
+                </div>
+                <div class="hero-img">
+                    <img src="ruta/a/tu/imagen_portada.jpg" alt="Arte 3D Abstracto">
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container bio-layout">
+                <ul class="skills-list">
+                    <li>✱ Identidad & Branding</li>
+                    <li>✱ Diseño Digital</li>
+                    <li>✱ Fotografía</li>
+                </ul>
+                <div class="bio-content">
+                    <p>
+                        Yi Saint-Jour (1993) es una diseñadora multidisciplinaria cuya práctica cruza el diseño digital, la identidad visual y la ilustración. Su trayectoria se ha desarrollado creando piezas visuales para redes sociales y contenido audiovisual.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="navi">
+            <div class="container">
+                <div class="project-header">
+                    <div class="project-img-hero">
+                        <img src="ruta/a/navi_render.jpg" style="width:100%; border-radius:8px;" alt="Navi Render">
+                    </div>
+                    <div class="project-title">
+                        <h2>navi</h2>
+                        <span>Comunidad creativa del K-Fandom</span>
+                        <p>Dirección creativa para una comunidad de personas aficionadas a la cultura coreana.</p>
+                        <div class="tags">
+                            <span class="tag">Dirección Creativa</span>
+                            <span class="tag">Ilustración 3D</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="grid-item"><img src="ruta/a/navi_stickers.jpg" alt="Navi Assets"></div>
+                    <div class="grid-item"><img src="ruta/a/navi_grid.jpg" alt="Navi Social Grid"></div>
+                </div>
+
+                <div class="grid-4">
+                     <div class="grid-item"><img src="ruta/a/detalle1.jpg" alt="Detalle"></div>
+                     <div class="grid-item"><img src="ruta/a/detalle2.jpg" alt="Detalle"></div>
+                     <div class="grid-item"><img src="ruta/a/detalle3.jpg" alt="Detalle"></div>
+                     <div class="grid-item"><img src="ruta/a/detalle4.jpg" alt="Detalle"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="miu">
+             <div class="container">
+                <div class="project-header">
+                    <div class="project-img-hero">
+                        <img src="ruta/a/navi_render.jpg" style="width:100%; border-radius:8px;" alt="Navi Render">
+                    </div>
+                    <div class="project-title">
+                        <h2>MIU NAIL STUDIO</h2>
+                        <span>Logotipo & Highlights</span>
+                        <p>Diseño de pack de logotipo e historias destacadas para perfil de Instagram. Estética Glossy & Y2K.</p>
+                        <div class="tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Social Media</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-gallery">
+                    <div class="gallery-item"><img src="ruta/a/navi_stickers.jpg" alt="Navi Assets"></div>
+                    <div class="gallery-item"><img src="ruta/a/navi_grid.jpg" alt="Navi Social Grid"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="luck">
+            <div class="container">
+                <div class="project-header">
+                    <div class="project-img-hero">
+                        <img src="ruta/a/luck_mockup.jpg" style="width:100%; border-radius:8px;" alt="Luck Inside Mockup">
+                    </div>
+                    <div class="project-title">
+                        <h2>Luck Inside<br>7 Doors</h2>
+                        <span>Urimusic Entertainment</span>
+                        <p>Diseño gráfico para campaña promocional de la agrupación surcoreana Dreamcatcher.</p>
+                        <div class="tags">
+                            <span class="tag">Social Media</span>
+                            <span class="tag">Eventos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lab">
+            <div class="container">
+                <h2 style="margin-bottom: 40px; font-size: 2rem;">Visual Exploration</h2>
+                <div class="lab-grid">
+                    <div class="lab-item"><img src="ruta/a/abstract_01.jpg" alt="3D Art"></div>
+                    <div class="lab-item"><img src="ruta/a/abstract_02.jpg" alt="3D Art"></div>
+                    <div class="lab-item"><img src="ruta/a/abstract_03.jpg" alt="3D Art"></div>
+                    <div class="lab-item"><img src="ruta/a/abstract_04.jpg" alt="3D Art"></div>
+                    <div class="lab-item"><img src="ruta/a/abstract_05.jpg" alt="3D Art"></div>
+                    <div class="lab-item"><img src="ruta/a/abstract_06.jpg" alt="3D Art"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="footer">
+            <div class="footer-big">Gracias!</div>
+            <div class="footer-info">
+                <a href="mailto:yi.creativa@gmail.com">yi.creativa@gmail.com</a>
+                <a href="#">+569 4987 3116</a>
+                <br><br>
+                <div class="visit-badge" id="visit-counter">
+                    Visitas: Cargando...
+                </div>
+                <br><br>
+                <span style="font-size: 0.8rem; opacity: 0.7;">© 2026 Yi Saint-Jour.</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // 1. SCROLL SPY (BARRA LATERAL ACTIVA)
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // 2. CONTADOR DE VISITAS
+        const NAMESPACE = 'yi-saint-jour-portfolio'; // Pon aquí tu namespace si tienes uno
+        const KEY = 'visitas'; 
+        const counterElement = document.getElementById('visit-counter');
+        
+        // Usamos countapi.xyz (puedes cambiar a counterapi.dev si esa es tu cuenta)
+        fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`)
+            .then(res => res.json())
+            .then(data => {
+                counterElement.innerText = `Visitas: ${data.value}`;
+            })
+            .catch(err => {
+                console.error(err);
+                counterElement.innerText = 'Visitas: --';
+            });
+    </script>
+</body>
+</html>
